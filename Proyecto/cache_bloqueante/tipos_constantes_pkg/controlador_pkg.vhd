@@ -7,15 +7,11 @@ package controlador_pkg is
 
 type tipoestado is (DES0, DES, CMPET, INI, ESCINI, LEC, PBL, ESPL, LVIC, PEX, ESPE, ESB, ESC);
 
-subtype st_estado is std_logic_vector(1 downto 0);
-constant estado_I: st_estado:= "00";
-constant estado_L: st_estado:= "01";
-constant estado_M: st_estado:= "11";
-
 type tp_contro_e is record
 	acc: std_logic;
    esc: std_logic;
 	ini: std_logic;
+	esc_pala: st_bloque_esc; -- Palabra a la que escribir?
 end record;
 
 type tp_contro_s is record
@@ -30,7 +26,7 @@ end record;
 
 type tp_contro_cam_cntl is record
     DAT_acc: std_logic;
-    DAT_esc: std_logic;
+    DAT_esc: st_bloque_esc;
     EST_acc: std_logic;
     EST_esc: std_logic;
     EST_DE: st_estado;

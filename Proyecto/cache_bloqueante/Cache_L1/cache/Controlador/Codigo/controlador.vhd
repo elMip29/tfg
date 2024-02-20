@@ -22,12 +22,12 @@ architecture comportamiento of controlador is
 
 signal estado, prxestado: tipoestado;
 signal derechos_acceso: std_logic;
-signal expulsion_modificado: std_logic; -- igual no es necesaria
+signal expulsion_modificado: std_logic;
 
 begin
 
-derechos_acceso <= '1' when (info_estado.AF = '1' and (info_estado.EST = "01" or info_estado.EST = "11")) else '0';
-expulsion_modificado <= '1' when (derechos_acceso = '0' and info_estado.EST = "11") else '0';
+derechos_acceso <= '1' when (info_estado.AF = '1' and (info_estado.EST = Contenedor_L or info_estado.EST = Contenedor_M)) else '0';
+expulsion_modificado <= '1' when (derechos_acceso = '0' and info_estado.EST = Contenedor_M) else '0';
 
 -- Registro estado 
 reg_estado: process(reloj, pcero)
@@ -42,7 +42,7 @@ begin
 end process;
 
 
--- Logica del proximo estado process 
+-- Logica del proximo estado 
 logica_prx_estado: process(pcero, pet, info_estado, estado, resp_m, derechos_acceso, expulsion_modificado)
 variable v_estado: tipoestado;
 begin 
@@ -50,10 +50,11 @@ begin
 	if (pcero = not puesta_cero) then 
 	    case estado is
 		      when DES0 =>
-				    if (hay_peticion_ini_procesador(pet)) then 
-					     v_estado := INI;
-					 elsif (hay_peticion_procesador(pet)) then 
+				    if (hay_peticion_procesador(pet)) then
 					     v_estado := CMPET;
+					     if (hay_peticion_ini_procesador(pet)) then 
+					         v_estado := INI;
+						  end if;
 					 end if;
 					 
 				when INI =>
@@ -74,7 +75,7 @@ begin
 					     v_estado := ESC;
 					 elsif (es_expulsion_bl_modificado(expulsion_modificado)) then
 					     v_estado := LVIC;
-					 else -- Fallo
+					 elsif (es_fallo(derechos_acceso)) then 
 					     v_estado := PBL;
 				    end if;
 					 
@@ -132,12 +133,16 @@ begin
 	    case estado is 
 		      when DES0 => 
 				    if (hay_peticion_procesador(pet)) then 
-					     lectura_etiq_estado(v_s_control);
+					     if (hay_peticion_ini_procesador(pet)) then 
+						  else 
+					         lectura_etiq_estado(v_s_control);
+						  end if;
+						  interfaces_en_CURSO(v_resp);
 					 end if;
 					 
 				when INI =>
 				    actualizar_etiqueta(v_s_control);
-					 actualizar_estado(v_s_control, estado_L);
+					 actualizar_estado(v_s_control, contenedor_L);
 					 actualizar_dato(v_s_control);
 					 interfaces_en_CURSO(v_resp);
 				
@@ -147,20 +152,20 @@ begin
 				when DES =>
 				    if (hay_peticion_procesador(pet)) then 
 					     lectura_etiq_estado(v_s_control);
+						  interfaces_en_CURSO(v_resp);
 					 end if;
 					 
 				when CMPET =>
 				    if (es_acierto_lectura(pet, derechos_acceso)) then 
 					     lectura_datos(v_s_control);
 					 elsif (es_acierto_escritura(pet, derechos_acceso)) then
-					     if (info_estado.EST = estado_L) then
-						      actualizar_estado(v_s_control, estado_M); 
+					     if (info_estado.EST = contenedor_L) then
+						      actualizar_estado(v_s_control, contenedor_M); 
 						  end if;
-					     actualizar_dato(v_s_control);
+					     actualizar_dato_palabra(v_s_control, pet);
 					 elsif (es_expulsion_bl_modificado(expulsion_modificado)) then
-					     lectura_etiq_estado(v_s_control);
 						  lectura_datos(v_s_control);
-					 else 
+					 elsif (es_fallo(derechos_acceso)) then
 					     peticion_memoria_lectura(v_pet_m);
 					 end if;
 					 interfaces_en_CURSO(v_resp);
@@ -185,20 +190,26 @@ begin
 				when ESPL =>
 				    if (hay_respuesta_memoria(resp_m)) then 
 					     actualizar_etiqueta(v_s_control);
+						  actu_datos_desde_bus(v_s_control);
 						  actualizar_dato(v_s_control);
 					     if (es_fallo_lectura(pet, derechos_acceso)) then
-						      actualizar_estado(v_s_control, estado_L);
+						      actualizar_estado(v_s_control, contenedor_L);
 						  elsif (es_fallo_escritura(pet, derechos_acceso)) then 
-						      actualizar_estado(v_s_control, estado_M);
+						      actualizar_estado(v_s_control, contenedor_M);
 						  end if;
 					 end if;
 				    interfaces_en_CURSO(v_resp);
 					 
 				when ESB => 
+				    if (es_fallo_lectura(pet, derechos_acceso)) then 
+					     lectura_datos(v_s_control);
+					 elsif (es_fallo_escritura(pet, derechos_acceso)) then 
+					     actualizar_dato_palabra(v_s_control, pet);
+					 end if;
 				    interfaces_en_CURSO(v_resp);
 					 
 				when ESC =>
-				     interfaces_HECHOE(v_resp); -- Hay que modificar las funciones ya que despues vamos a DES
+				     interfaces_HECHOE(v_resp);
 					  
 				when LEC => 
 				     interfaces_HECHOL(v_resp);
