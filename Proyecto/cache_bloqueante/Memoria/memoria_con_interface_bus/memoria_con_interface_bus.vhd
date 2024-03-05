@@ -18,12 +18,12 @@ architecture estructural of memoria_con_interface_bus is
 
 component ensamblado_memoria is 
   port(reloj: in std_logic;
-       dir: st_dir;
+       dir: st_dir_bloque;
 		 m_pet_val: in std_logic;
 		 m_pe: in std_logic;
-		 dato_escribir: in st_bloque;
+		 dato_escribir: in st_bloque_dat;
 		 m_resp_val: out std_logic;
-		 dato_leido: out st_bloque);
+		 dato_leido: out st_bloque_dat);
 end component;
 
 signal mpet_datos_s: tp_peticion_datos; -- Peticion de datos que llega desde bus para memoria
@@ -31,9 +31,9 @@ signal mresp_datos_e: tp_respuesta_datos; -- Dato leido de memoria
 signal mresp_control_e: tp_respuesta_control; -- Respuesta valida de memoria
 signal mpet_contrl_s: tp_peticion_control; -- Peticion de control que llega desde el bus
 
-signal dir_mem: st_dir;
+signal dir_mem: st_dir_bloque;
 signal pe_mem, pet_mem, resp_mem: std_logic;
-signal dato_leido_mem, dato_escribir_mem: st_bloque;
+signal dato_leido_mem, dato_escribir_mem: st_bloque_dat;
 
 begin
 

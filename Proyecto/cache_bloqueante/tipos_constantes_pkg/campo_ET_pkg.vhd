@@ -6,16 +6,16 @@ use work.param_disenyo_pkg.all;
 package campo_ET_pkg is
 
 type tp_memoria_et_e is record
-    acc: std_logic;
-    dir: st_dir_conjunto;
-    pe: std_logic;
-    DE: st_etiqueta;
-  end record;
+   acc: std_logic;
+   dir: st_dir_conjunto;
+   pe: std_logic;
+   DE: st_etiqueta;
+end record;
 
-type tp_Etiq_e is record
+type tp_etiq_e is record
 	acc: std_logic;
 	dirB: st_dir_bloque;
-    esc : std_logic;
+   esc : std_logic;
 end record;
 
 subtype AF is std_logic;

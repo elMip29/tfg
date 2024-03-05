@@ -8,10 +8,10 @@ use work.retardos_pkg.all;
 entity memory is
    port(reloj: in std_logic;
 	     m_peticion: in std_logic;
-		  dir: in st_dir;
+		  dir: in st_dir_bloque;
 		  m_pe: in std_logic;
-		  dato_escribir: in st_bloque;
-		  dato_leido: out st_bloque);
+		  dato_escribir: in st_bloque_dat;
+		  dato_leido: out st_bloque_dat);
 end memory;
 
 architecture comportamiento of memory is

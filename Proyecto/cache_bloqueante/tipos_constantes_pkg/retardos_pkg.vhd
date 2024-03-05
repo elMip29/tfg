@@ -28,4 +28,10 @@ constant ret_mem: time := 8 ns;
 constant ret_deco_mem: time := 3 ns;
 constant retcnt_mem: time := 1 ns;
 
+-- Otros
+constant ret_reg_pet: time := 2 ns;
+constant ret_mux_pet: time := 2 ns;
+
+constant ret_reg_etiq: time := 2 ns;
+
 end retardos_pkg;

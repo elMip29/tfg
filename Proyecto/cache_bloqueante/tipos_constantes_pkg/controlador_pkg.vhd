@@ -11,7 +11,6 @@ type tp_contro_e is record
 	acc: std_logic;
    esc: std_logic;
 	ini: std_logic;
-	esc_pala: st_bloque_esc; -- Palabra a la que escribir?
 end record;
 
 type tp_contro_s is record
@@ -26,7 +25,8 @@ end record;
 
 type tp_contro_cam_cntl is record
     DAT_acc: std_logic;
-    DAT_esc: st_bloque_esc;
+    DAT_palabra_esc: std_logic;
+    DAT_bloque_esc: std_logic;
     EST_acc: std_logic;
     EST_esc: std_logic;
     EST_DE: st_estado;

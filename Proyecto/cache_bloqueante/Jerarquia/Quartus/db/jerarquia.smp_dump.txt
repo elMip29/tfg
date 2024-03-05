@@ -1,0 +1,16 @@
+
+State Machine - |jerarquia|interface_cache_con_bus:cache_bloqueante|cache_con_interface_proc:cach|ensamblado_cache:cache|controlador:controlador_cache|\reg_estado:v_estado
+Name \reg_estado:v_estado.ESC \reg_estado:v_estado.ESB \reg_estado:v_estado.ESPE \reg_estado:v_estado.PEX \reg_estado:v_estado.LVIC \reg_estado:v_estado.ESPL \reg_estado:v_estado.PBL \reg_estado:v_estado.LEC \reg_estado:v_estado.ESCINI \reg_estado:v_estado.INI \reg_estado:v_estado.CMPET \reg_estado:v_estado.DES \reg_estado:v_estado.DES0 
+\reg_estado:v_estado.DES0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+\reg_estado:v_estado.DES 0 0 0 0 0 0 0 0 0 0 0 1 1 
+\reg_estado:v_estado.CMPET 0 0 0 0 0 0 0 0 0 0 1 0 1 
+\reg_estado:v_estado.INI 0 0 0 0 0 0 0 0 0 1 0 0 1 
+\reg_estado:v_estado.ESCINI 0 0 0 0 0 0 0 0 1 0 0 0 1 
+\reg_estado:v_estado.LEC 0 0 0 0 0 0 0 1 0 0 0 0 1 
+\reg_estado:v_estado.PBL 0 0 0 0 0 0 1 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPL 0 0 0 0 0 1 0 0 0 0 0 0 1 
+\reg_estado:v_estado.LVIC 0 0 0 0 1 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.PEX 0 0 0 1 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESPE 0 0 1 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESB 0 1 0 0 0 0 0 0 0 0 0 0 1 
+\reg_estado:v_estado.ESC 1 0 0 0 0 0 0 0 0 0 0 0 1 

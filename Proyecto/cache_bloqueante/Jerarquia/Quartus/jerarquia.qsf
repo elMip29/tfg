@@ -46,7 +46,42 @@ set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/param_disenyo_1_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Controlador/Codigo/controlador.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Camino_de_Datos/Componentes/campo_etiquetas/m_etiquetas/memoria_ET.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Camino_de_Datos/Componentes/campo_etiquetas/Ensamblado/ensamblado_etiquetas.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Camino_de_Datos/Componentes/campo_estado/m_estado/memoria_EST.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Camino_de_Datos/Componentes/campo_datos/m_datos/memoria_DAT.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Camino_de_Datos/Componentes/campo_datos/ensamblado/ensamblado_datos.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Camino_de_Datos/Quartus/camino_datos.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/cache/Ensamblado/ensamblado_cache.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Registros/RegDatos_resp.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Registros/RegDatos_pet.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Registros/RegControl_resp.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Registros/RegControl_pet.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Interfaces/interface_mem_bus_datos.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Interfaces/interface_mem_bus_control.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Interfaces/interface_cache_bus_info.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/Interfaces/interface_cache_bus_control.vhd
+set_global_assignment -name VHDL_FILE ../../Bus/componentes_interfaces_bus_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/ensamblado_con_interface_proc/registro_pet.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/ensamblado_con_interface_proc/mux_pet.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/ensamblado_con_interface_proc/interface_proc_cache.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_proc_cache/ensamblado_con_interface_proc/cache_con_interface_proc.vhd
+set_global_assignment -name VHDL_FILE ../../Cache_L1/interface_cache_bus/interface_cache_con_bus.vhd
+set_global_assignment -name VHDL_FILE ../../Memoria/Memoria_Principal/Reg_ControladorMem.vhd
+set_global_assignment -name VHDL_FILE ../../Memoria/Memoria_Principal/memory.vhd
+set_global_assignment -name VHDL_FILE ../../Memoria/Memoria_Principal/ensamblado_memoria.vhd
+set_global_assignment -name VHDL_FILE ../../Memoria/Memoria_Principal/controlador_mem.vhd
+set_global_assignment -name VHDL_FILE ../../Memoria/memoria_con_interface_bus/memoria_con_interface_bus.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/retardos_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/procedimientos_controlador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/param_disenyo_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/controlador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/campo_ET_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/campo_EST_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/campo_DAT_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/camino_dat_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/acciones_pkg.vhd
 set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/peticiones_cache_pkg.vhd
 set_global_assignment -name VHDL_FILE jerarquia.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

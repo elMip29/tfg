@@ -36,7 +36,7 @@ subtype st_palabra_dat is std_logic_vector(tam_palabra_bits-1 downto 0);
 subtype st_bloque_dat is std_logic_vector(tam_bloque_bits-1 downto 0);
 subtype st_bloque_esc is std_logic_vector(num_palabras_bloque-1 downto 0);
 
-constant num_conjuntos: natural:= 4;
+constant num_conjuntos: natural:= 8;
 constant num_elem_conjunto: natural:= 1;
 constant num_contenedores: natural:= num_conjuntos * num_elem_conjunto;
 constant log_num_conjuntos: natural := natural(log2(real(num_conjuntos)));
@@ -78,6 +78,8 @@ type RAM_mem is array(0 to tam_EspacioLogico - 1) of st_bloque_dat;
 
 subtype numero_contenedores is natural range 0 to num_conjuntos - 1;
 type tp_m_ET is array (numero_contenedores) of st_etiqueta;
+type tp_m_EST is array (numero_contenedores) of st_estado;
+type tp_m_DAT is array (numero_contenedores) of st_bloque_dat;
 
 
 end package param_disenyo_pkg;

@@ -18,10 +18,10 @@ function es_fallo_escritura (signal pet: tp_contro_e; signal derechos_acceso: st
 
 function es_fallo (signal derechos_acceso: std_logic) return boolean;
 
-function es_expulsion_bl_modificado (signal expulsion_modificado: std_logic) return boolean;
+function es_lectura (signal pet: tp_contro_e) return boolean;
+function es_escritura (signal pet: tp_contro_e) return boolean;
 
---function es_escritura_primera_pala (signal pet: tp_contro_e) return boolean;
---function es_escritura_segunda_pala (signal pet: tp_contro_e) return boolean;
+function es_expulsion_bl_modificado (signal expulsion_modificado: std_logic) return boolean;
 
 function hay_respuesta_memoria (signal resp_m: tp_cntl_memoria_e) return boolean;
 
@@ -41,15 +41,12 @@ procedure lectura_datos (variable v_s_control: inout tp_contro_cam_cntl);
 procedure actualizar_etiqueta (variable v_s_control: inout tp_contro_cam_cntl);
 procedure actualizar_estado (variable v_s_control: inout tp_contro_cam_cntl; estado_conte: st_estado);
 procedure actualizar_dato (variable v_s_control: inout tp_contro_cam_cntl);
-procedure actualizar_dato_palabra (variable v_s_control: inout tp_contro_cam_cntl; signal v_pet: tp_contro_e);
+procedure actualizar_dato_palabra (variable v_s_control: inout tp_contro_cam_cntl);
 
 procedure peticion_memoria_lectura (variable v_pet_m: out tp_cntl_memoria_s);
 procedure peticion_memoria_escritura (variable v_pet_m: out tp_cntl_memoria_s);
 
 procedure expulsar_bloque_modificado(variable v_s_control: inout tp_contro_cam_cntl);
-
---procedure actualizar_dato_primera_pala (variable v_s_control: inout tp_contro_cam_cntl);
---procedure actualizar_dato_segunda_pala (variable v_s_control: inout tp_contro_cam_cntl);
 
 end package procedimientos_controlador_pkg;
 
@@ -92,10 +89,10 @@ return (es_acierto);
 end es_acierto_escritura;
 
 function es_fallo_escritura (signal pet: tp_contro_e; signal derechos_acceso: std_logic) return boolean is
-variable es_acierto: boolean:= FALSE;
+variable es_fallo: boolean:= FALSE;
 begin
-	es_acierto := (pet.esc = escritura and derechos_acceso = derechos_acceso_no);
-return (es_acierto);
+	es_fallo := (pet.esc = escritura and derechos_acceso = derechos_acceso_no);
+return (es_fallo);
 end es_fallo_escritura;
 
 function es_fallo (signal derechos_acceso: std_logic) return boolean is
@@ -105,26 +102,26 @@ begin
 return (es_fallada);
 end es_fallo;
 
+function es_lectura (signal pet: tp_contro_e) return boolean is
+variable es_lectura: boolean:= FALSE;
+begin 
+   es_lectura := (pet.esc = lectura);
+return (es_lectura);
+end es_lectura;
+
+function es_escritura (signal pet: tp_contro_e) return boolean is
+variable es_escritura: boolean:= FALSE;
+begin 
+   es_escritura := (pet.esc = escritura);
+return (es_escritura);
+end es_escritura;
+
 function es_expulsion_bl_modificado (signal expulsion_modificado: std_logic) return boolean is
 variable es_expulsion: boolean:= FALSE;
 begin 
    es_expulsion := (expulsion_modificado = expulsion_si);
 return (es_expulsion);
 end es_expulsion_bl_modificado;
-
---function es_escritura_primera_pala (signal pet: tp_contro_e) return boolean is 
---variable esc_primera_pala: boolean:= FALSE;
---begin 
---   esc_primera_pala:= (pet.pala = "01");
---return (esc_primera_pala);
---end es_escritura_primera_pala;
-
---function es_escritura_segunda_pala (signal pet: tp_contro_e) return boolean is 
---variable esc_segunda_pala: boolean:= FALSE;
---begin 
---   esc_segunda_pala:= (pet.pala = "10");
---return (esc_segunda_pala);
---end es_escritura_segunda_pala;
 
 function hay_respuesta_memoria (signal resp_m: tp_cntl_memoria_e) return boolean is
 variable hay_resp: boolean:= FALSE;
@@ -149,13 +146,13 @@ end procedure;
 procedure interfaces_HECHOL(variable v_resp: out tp_contro_s) is
 begin
 	v_resp.finalizada := '1';
-	v_resp.listo := resp_cache_listo;
+	v_resp.listo := resp_cache_ocupado;
 end procedure;
 
 procedure interfaces_HECHOE(variable v_resp: out tp_contro_s) is
 begin
 	v_resp.finalizada := '0';
-	v_resp.listo := resp_cache_listo;
+	v_resp.listo := resp_cache_ocupado;
 end procedure;
 
 procedure actu_datos_desde_bus (variable v_s_control: inout tp_contro_cam_cntl) is
@@ -167,7 +164,8 @@ procedure por_defecto (variable v_s_control: inout tp_contro_cam_cntl; variable 
 begin
 	interfaces_DES(v_resp);
 	v_s_control:= (DAT_acc => acceso_no,
-				DAT_esc => escritura_no_permiso_pala,
+				DAT_bloque_esc => escritura_no_permiso,
+				DAT_palabra_esc => escritura_no_permiso,
 				ET_acc => acceso_no,
 				ET_esc => escritura_no_permiso,
 				EST_acc => acceso_no,
@@ -207,13 +205,13 @@ end procedure;
 procedure actualizar_dato (variable v_s_control: inout tp_contro_cam_cntl) is
 begin
 	v_s_control.DAT_acc := acceso_si;
-	v_s_control.DAT_esc := escritura_permiso_bloque;
+	v_s_control.DAT_bloque_esc := escritura_permiso;
 end procedure;
 
-procedure actualizar_dato_palabra (variable v_s_control: inout tp_contro_cam_cntl; signal v_pet: in tp_contro_e) is
+procedure actualizar_dato_palabra (variable v_s_control: inout tp_contro_cam_cntl) is
 begin
 	v_s_control.DAT_acc := acceso_si;
-	v_s_control.DAT_esc := v_pet.esc_pala;
+	v_s_control.DAT_palabra_esc := escritura_permiso;
 end procedure;
 
 procedure peticion_memoria_lectura (variable v_pet_m: out tp_cntl_memoria_s) is
@@ -234,18 +232,6 @@ procedure expulsar_bloque_modificado(variable v_s_control: inout tp_contro_cam_c
 begin 
    v_s_control.exp:= expulsion_si;
 end procedure;
-
---procedure actualizar_dato_primera_pala (variable v_s_control: inout tp_contro_cam_cntl) is
---begin 
---   v_s_control.DAT_acc := acceso_si;
---	v_s_control.DAT_esc := escritura_permiso_primera_pala;
---end procedure;
---
---procedure actualizar_dato_segunda_pala (variable v_s_control: inout tp_contro_cam_cntl) is
---begin 
---   v_s_control.DAT_acc := acceso_si;
---	v_s_control.DAT_esc := escritura_permiso_segunda_pala;
---end procedure;
 
 end package body procedimientos_controlador_pkg;
 
