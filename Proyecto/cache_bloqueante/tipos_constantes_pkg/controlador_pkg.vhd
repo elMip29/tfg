@@ -32,7 +32,7 @@ type tp_contro_cam_cntl is record
     EST_DE: st_estado;
     ET_acc: std_logic;
     ET_esc: std_logic;
-	 muxB: std_logic; -- Dato de memoria o del productor
+	 muxE: std_logic; -- Dato de memoria o del productor
 	 exp: std_logic; -- Señal de expulsion
 end record;
 

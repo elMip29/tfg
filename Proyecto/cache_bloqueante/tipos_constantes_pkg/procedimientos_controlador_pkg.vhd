@@ -157,7 +157,7 @@ end procedure;
 
 procedure actu_datos_desde_bus (variable v_s_control: inout tp_contro_cam_cntl) is
 begin
-	v_s_control.muxB := actualizar_campo_datos_desde_bus;
+	v_s_control.muxE := actualizar_campo_datos_desde_bus;
 end procedure;
 
 procedure por_defecto (variable v_s_control: inout tp_contro_cam_cntl; variable v_pet_m: out tp_cntl_memoria_s; variable v_resp: out tp_contro_s) is
@@ -171,7 +171,7 @@ begin
 				EST_acc => acceso_no,
 				EST_esc => escritura_no_permiso,
 				EST_DE => contenedor_I,
-				muxB => '0',
+				muxE => '0',
 				exp => expulsion_no);
 	v_pet_m:= (m_acc => acceso_no,
 				m_pet => peticion_memoria_no,
