@@ -30,7 +30,7 @@ constant dir_bloque_bits: natural:= dir_bits - dir_mod_bloque_bits; -- Numero de
 constant primera_pala: natural:= tam_palabra_bits;
 constant segunda_pala: natural:= tam_palabra_bits * num_palabras_bloque;
 
--- Parametros Cache L1 --
+-- Parametros Cache --
 subtype st_elem_dat is std_logic_vector(tam_bytes_bits-1 downto 0);
 subtype st_palabra_dat is std_logic_vector(tam_palabra_bits-1 downto 0);
 subtype st_bloque_dat is std_logic_vector(tam_bloque_bits-1 downto 0);
@@ -47,7 +47,7 @@ constant etiq_bits: natural:= dir_bloque_bits - indice_bits;
 
 subtype st_etiqueta is std_logic_vector(etiq_bits-1 downto 0); 
 subtype st_dir_conjunto is std_logic_vector(indice_bits-1 downto 0);
-subtype st_dir_bloque is std_logic_vector(etiq_bits+indice_bits-1 downto 0);
+subtype st_dir_bloque is std_logic_vector(etiq_bits+elem_conjunto_bits+indice_bits-1 downto 0);
 
 -- bits mas significativo (mas uno) y menos significativo de los campos etiquetas (et) y conjunto (cj)
 constant bitMAS_et: natural:= dir_bloque_bits;
@@ -62,16 +62,6 @@ subtype st_estado is std_logic_vector(bits_estado - 1 downto 0);
 
 subtype st_cache_dat is std_logic_vector(tam_bloque_bits-1 downto 0);
 
---constant num_contenedores: natural:= 4;
-
---constant block_offset_bits: natural:= natural((log2(real(tam_bloque_bytes))));
---constant indice_bits: natural:= natural((log2(real(num_contenedores))));
---constant etiqueta_bits: natural:= (dir_bits - indice_bits) - block_offset_bits;
-
---subtype st_block_offset is std_logic_vector(block_offset_bits - 1 downto 0);
---subtype st_indice is std_logic_vector(indice_bits - 1 downto 0);
---subtype st_etiqueta is std_logic_vector(etiqueta_bits - 1 downto 0);
-
 -- Memoria --
 constant tam_EspacioLogico: integer:= 2**dir_bits;
 type RAM_mem is array(0 to tam_EspacioLogico - 1) of st_bloque_dat;
@@ -81,7 +71,7 @@ type tp_m_ET is array (numero_contenedores) of st_etiqueta;
 type tp_m_EST is array (numero_contenedores) of st_estado;
 type tp_m_DAT is array (numero_contenedores) of st_bloque_dat;
 
+-- prueba
+constant tam_palabra: natural := 2**tam_palabra_bits;
 
 end package param_disenyo_pkg;
-
-
