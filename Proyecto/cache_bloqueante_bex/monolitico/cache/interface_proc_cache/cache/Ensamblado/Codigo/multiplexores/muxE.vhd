@@ -13,15 +13,20 @@ end muxE;
 
 architecture compor of muxE is  
 
+signal sv_CMPET: st_dir_bloque;
+signal sv_ESC_LEC: st_dir_bloque;
+
+signal and_CMPET: st_dir_bloque;
+signal and_ESC_LEC: st_dir_bloque;
+
 begin
-  
-  process(sel_CMPET, sel_ESC_LEC, dir_bloque_proc, dir_bloque_exp) 
-    begin
-	    if (sel_CMPET = '1') then 
-		     salida <= dir_bloque_proc;
-		 elsif (sel_ESC_LEC = '1') then 
-		     salida <= dir_bloque_exp;
-	    end if;
-  end process;
+
+sv_CMPET <= (others => sel_CMPET);
+sv_ESC_LEC <= (others => sel_ESC_LEC);
+
+and_CMPET <= dir_bloque_proc and sv_CMPET;
+and_ESC_LEC <= dir_bloque_exp and sv_ESC_LEC;
+
+salida <= and_CMPET or and_ESC_LEC;
 	  
 end compor;
