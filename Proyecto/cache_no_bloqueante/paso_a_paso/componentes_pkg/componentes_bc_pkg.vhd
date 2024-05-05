@@ -8,6 +8,7 @@ package componentes_bc_pkg is
 component reg_bloq_mem is 
   port(reloj: in std_logic; 
        entrada: in st_bloque_dat; 
+		 pe: in std_logic;
 		 salida: out st_bloque_dat);
 end component;
 

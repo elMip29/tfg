@@ -102,7 +102,7 @@ bdf: buffer_DF port map(reloj => reloj, pcero => pcero, dir_fallo => peticion.di
                         dir_fallo_reg => dir_bdf_reg_inter, dato_esc_reg => dato_bdf_reg_inter, LE_reg => LE_bdf_reg_inter, val_bdf => val_bdf_reg_inter);
 
 -- Buffer de carga --
-bc: buffer_carga port map(reloj => reloj, pcero => pcero, bloque_mem => mbloque, acceso_lec => bc_control_inter.acceso_lec, bc_cntl => bc_control_inter, bloque_mem_reg => bloque_bc, 
+bc: buffer_carga port map(reloj => reloj, pcero => pcero, bloque_mem => mbloque, acceso_lec => acc_lec, bc_cntl => bc_control_inter, bloque_mem_reg => bloque_bc, 
                           validez_BC => val_bc_inter);
 								  
 -- Multiplexores BDF --

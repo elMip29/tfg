@@ -127,7 +127,7 @@ end record;
 
 type tp_cntl_bc is record -- Mensaje de control para el buffer de carga 
     validez_bc: std_logic;
-	 acceso_lec: std_logic;
+	 pe_bc: std_logic;
 	 pe_val_bc: std_logic;
 end record;
 

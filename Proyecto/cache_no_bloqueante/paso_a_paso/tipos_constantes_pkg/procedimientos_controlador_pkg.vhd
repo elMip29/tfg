@@ -77,7 +77,7 @@ procedure control_muxE_expulsion(variable expulsion: inout std_logic);
 
 procedure escritura_BDF(variable v_bdf_control: inout tp_cntl_bdf; signal pet: in tp_contro_e);
 procedure invalidar_BDF(variable v_bdf_control: inout tp_cntl_bdf);
-procedure escritura_BC(variable v_bc_control: inout tp_cntl_bc; signal reg_acceso_lec: in std_logic);
+procedure escritura_BC(variable v_bc_control: inout tp_cntl_bc);
 procedure invalidar_BC(variable v_bc_control: inout tp_cntl_bc);
 procedure esc_regAsociadoBC(variable v_pe_regAsociadoBC: inout std_logic);
 
@@ -295,7 +295,7 @@ begin
 						  validez_bdf => '0',
 						  pe_val_bdf => escritura_no_permiso);
 	v_bc_control:= (validez_bc => '0',
-	                acceso_lec => '0',
+	                pe_bc => '0',
 	                pe_val_bc => escritura_no_permiso);
 	v_pe_regAsociadoBC:= '0';
 end procedure;
@@ -452,10 +452,11 @@ begin
    v_bdf_control.validez_bdf := '0';	
 end procedure;
 
-procedure escritura_BC(variable v_bc_control: inout tp_cntl_bc; signal reg_acceso_lec: in std_logic) is 
+procedure escritura_BC(variable v_bc_control: inout tp_cntl_bc) is 
 begin
-   v_bc_control.pe_val_bc := '1'; 
-	v_bc_control.acceso_lec := reg_acceso_lec;
+   v_bc_control.pe_val_bc := '1';
+   v_bc_control.pe_bc := '1';	
+	--v_bc_control.acceso_lec := reg_acceso_lec;
 end procedure;
 
 procedure invalidar_BC(variable v_bc_control: inout tp_cntl_bc) is

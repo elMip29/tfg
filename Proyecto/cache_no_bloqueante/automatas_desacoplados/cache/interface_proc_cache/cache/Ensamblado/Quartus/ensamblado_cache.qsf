@@ -1,0 +1,117 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+# Date created = 17:55:47  February 29, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		ensamblado_cache_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV GX"
+set_global_assignment -name DEVICE auto
+set_global_assignment -name TOP_LEVEL_ENTITY ensamblado_cache
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:55:47  FEBRUARY 29, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_arbitro_pkg.vhd
+set_global_assignment -name VHDL_FILE "../../Arbitro/Camino de datos/gestor_camino.vhd"
+set_global_assignment -name VHDL_FILE ../../Arbitro/Bus/gestor_bus.vhd
+set_global_assignment -name VHDL_FILE ../../Arbitro/Ensamblado/Codigo/arbitro.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Automata_Acceso/Codigo/auto_acceso.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Ensamblado/Codigo/componentes/muxCache/mux_ET.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Ensamblado/Codigo/componentes/muxCache/mux_EST.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Ensamblado/Codigo/componentes/muxCache/mux_DAT.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Ensamblado/Codigo/componentes/muxCache/ensamblado_muxCamDatos.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_muxBDF_pkg.vhd
+set_global_assignment -name VHDL_FILE ../Codigo/multiplexores/muxBDF/Codigo/Componentes/mux_bdf_dir.vhd
+set_global_assignment -name VHDL_FILE ../Codigo/multiplexores/muxBDF/Codigo/Componentes/mux_bdf_dat.vhd
+set_global_assignment -name VHDL_FILE ../Codigo/multiplexores/muxBDF/Codigo/ensamblado_muxBDF.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Ensamblado/Codigo/componentes/regAsociadoBC.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Carga/Codigo/Componentes/reg_val_BC.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Carga/Codigo/Componentes/reg_bloq_mem.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componente_etiq_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componente_datos_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_bdf_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/Contador/reg_counter.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/Contador/mux_fin_cont.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/Contador/mux_bex_val.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/Contador/contador_bex.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Direcciones_Fallo/Codigo/Componentes/reg_validez_bdf.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Direcciones_Fallo/Codigo/Componentes/reg_LE.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Direcciones_Fallo/Codigo/Componentes/reg_dirFallo.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Direcciones_Fallo/Codigo/Componentes/reg_dato_esc.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Automata_Expulsion/Codigo/auto_exp.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Automata_Fallo/Codigo/auto_fallo.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Ensamblado/Codigo/componentes/muxM.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_controlador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../Controlador/Ensamblado/Codigo/controlador.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_multiplexor_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_camino_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_cache_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_bex_pkg.vhd
+set_global_assignment -name VHDL_FILE ../Codigo/ensamblado_cache.vhd
+set_global_assignment -name VHDL_FILE ../Codigo/multiplexores/muxE.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/campo_datos/m_datos/Codigo/memoria_DAT.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/campo_datos/ensamblado/Codigo/ensamblado_datos.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/campo_estado/m_estado/Codigo/memoria_EST.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/campo_etiquetas/m_etiquetas/Codigo/memoria_ET.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/campo_etiquetas/ensamblado/Codigo/ensamblado_etiquetas.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/ensamblado/Codigo/camino_datos.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/multiplexores/muxD.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/multiplexores/muxB.vhd
+set_global_assignment -name VHDL_FILE ../../Camino_de_Datos/Componentes/circuiteria_pe/permiso_escritura_DAT.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/reg_validezBex.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/reg_dirBloque.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/reg_bloqueExp.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/Componentes/multiplexores_reg_validez.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Expulsiones/Codigo/buffer_expulsiones.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/retardos_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/procedimientos_controlador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/peticiones_cache_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/param_disenyo_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/controlador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/campo_ET_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/campo_EST_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/campo_DAT_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/camino_dat_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../tipos_constantes_pkg/acciones_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Direcciones_Fallo/Codigo/buffer_DF.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_contador_bex_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../Buffer_Carga/Codigo/buffer_carga.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_bc_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../../../../componentes_pkg/componentes_muxCamDatos_pkg.vhd
+set_global_assignment -name VHDL_FILE ../Codigo/multiplexores/MuxB_control.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -7,6 +7,7 @@ use work.retardos_pkg.all;
 entity reg_bloq_mem is 
   port(reloj: in std_logic; 
        entrada: in st_bloque_dat; 
+		 pe: in std_logic;
 		 salida: out st_bloque_dat);
 end entity;
 
@@ -16,8 +17,10 @@ begin
 
 process(reloj)
  begin 
-    if (rising_edge(reloj)) then 
-	     salida <= entrada after retREGDES;
+    if (rising_edge(reloj)) then
+	     if (pe = '1') then  
+	         salida <= entrada after retREGDES;
+		  end if;
 	 end if;
 end process;
 end comportamiento;

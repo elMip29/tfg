@@ -210,11 +210,14 @@ begin
 				    end if;
 					 
 				when ESPL =>
-				    if (memoria_lista(mem_ocupada)) then 
-					     escritura_BC(v_bc_control, reg_acceso_lec);
-					 elsif (es_bc_valido(acceso_lec)) then 
-					     esc_regAsociadoBC(v_pe_regAsociadoBC);
+				    if (es_bc_valido(acceso_lec)) then 
+					     escritura_BC(v_bc_control);
 					 end if;
+----				--    if (memoria_lista(mem_ocupada)) then 
+----					     escritura_BC(v_bc_control, reg_acceso_lec);
+----				--	 elsif (es_bc_valido(acceso_lec)) then 
+----					     esc_regAsociadoBC(v_pe_regAsociadoBC);
+----				--	 end if;
 				    interfaces_en_CURSO(v_resp);
 					 
 				when ABC => 
