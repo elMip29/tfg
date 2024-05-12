@@ -1,0 +1,57 @@
+        prod. store xxxx yy: productor emite store; direccion: xxxx; valor: yy
+        prod. load xxxx: productor emite load; direccion: xxxx
+        store cache xxxx yy: cache inicia procesado de store; direccion: xxxx; valor: yy
+        load cache xxxx: cache inicia procesado de load; direccion: xxxx
+        consumo. valor    yy  load    xxxx: consumidor captura el valor; direccion: xxxx; valor: yy
+
+ciclo      accion
+    0     no hay peticion
+    4    final de puesta a cero
+    4  peticion de inicio  0000    00
+    5          prod. load  0000
+    7          load cache  0000
+    8         prod. store  0000    02
+    9             consumo. valor    00  load    0000
+   10         store cache  0000    02
+   11         prod. store  0001    01
+   13         store cache  0001    01
+   14          prod. load  0001
+   16          load cache  0001
+   17         prod. store  0010    00
+   18             consumo. valor    01  load    0001
+   19         store cache  0010    00
+   20         prod. store  0010    14
+   22         store cache  0010    14
+   23          prod. load  0000
+   33          load cache  0000
+   34         prod. store  0000    04
+   36         store cache  0000    04
+   37     no hay peticion
+   48             consumo. valor    02  load    0000
+   52     no hay peticion
+
+ Contenido de la cache. Informacion en hexadecimal o binario
+
+Numero
+Contenedor      Estado
+       Etiqueta      Datos
+
+        0   000 001  0104
+        1   XXX UUU  XXXX
+        2   XXX UUU  XXXX
+        3   XXX UUU  XXXX
+        4   XXX UUU  XXXX
+        5   XXX UUU  XXXX
+        6   XXX UUU  XXXX
+        7   XXX UUU  XXXX
+
+ Contenido de la memoria. Informacion en hexadecimal
+
+direccion   dato
+
+    0000  0102
+    0001  XXXX
+ . . . . . . . 
+    0007  XXXX
+    0008  XX14
+    0009  XXXX

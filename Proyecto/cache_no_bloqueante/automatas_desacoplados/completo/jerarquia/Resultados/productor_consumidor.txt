@@ -1,0 +1,313 @@
+        prod. store xxxx yy: productor emite store; direccion: xxxx; valor: yy
+        prod. load xxxx: productor emite load; direccion: xxxx
+        store cache xxxx yy: cache inicia procesado de store; direccion: xxxx; valor: yy
+        load cache xxxx: cache inicia procesado de load; direccion: xxxx
+        consumo. valor    yy  load    xxxx: consumidor captura el valor; direccion: xxxx; valor: yy
+
+ciclo      accion
+    0     no hay peticion
+    4    final de puesta a cero
+    4  peticion de inicio  0000    00
+    5          prod. load  0000
+    7          load cache  0000
+    8         prod. store  0000    02
+    9             consumo. valor    00  load    0000
+   10         store cache  0000    02
+   11         prod. store  0001    01
+   13         store cache  0001    01
+   14          prod. load  0001
+   16          load cache  0001
+   17         prod. store  0010    00
+   18             consumo. valor    01  load    0001
+   19         store cache  0010    00
+   20         prod. store  0010    14
+   22         store cache  0010    14
+   23          prod. load  0000
+   33          load cache  0000
+   34         prod. store  0000    04
+   36         store cache  0000    04
+   37         prod. store  0002    05
+   48             consumo. valor    02  load    0000
+   51         store cache  0002    05
+   52         prod. store  0000    01
+   54         store cache  0000    01
+   55          prod. load  0000
+   57          load cache  0000
+   58         prod. store  0000    02
+   59             consumo. valor    01  load    0000
+   60         store cache  0000    02
+   61         prod. store  0001    0A
+   66         store cache  0001    0A
+   67          prod. load  0001
+   69          load cache  0001
+   70         prod. store  0001    0B
+   71             consumo. valor    0A  load    0001
+   72         store cache  0001    0B
+   73         prod. store  FFFF    FF
+   75         store cache  FFFF    FF
+   76         prod. store  7FFF    FF
+   78         store cache  7FFF    FF
+   79          prod. load  FFFF
+   90          load cache  FFFF
+   91          prod. load  7FFF
+  102          load cache  7FFF
+  103         prod. store  0000    0B
+  110             consumo. valor    FF  load    FFFF
+  114         store cache  0000    0B
+  115         prod. store  0001    0C
+  117         store cache  0001    0C
+  118         prod. store  0002    0D
+  120         store cache  0002    0D
+  121         prod. store  0003    0E
+  122             consumo. valor    FF  load    0000
+valor no esperado , leido:   11111111, esperado:   00000000, Identificador: 1
+  126         store cache  0003    0E
+  127         prod. store  0004    0F
+  129         store cache  0004    0F
+  130         prod. store  0005    10
+  132         store cache  0005    10
+  133         prod. store  0006    11
+  143         store cache  0006    11
+  144         prod. store  0007    12
+  146         store cache  0007    12
+  147         prod. store  0008    13
+  157         store cache  0008    13
+  158         prod. store  0009    14
+  160         store cache  0009    14
+  161         prod. store  000A    15
+  171         store cache  000A    15
+  172         prod. store  000B    16
+  174         store cache  000B    16
+  175         prod. store  000C    17
+  185         store cache  000C    17
+  186         prod. store  000D    18
+  188         store cache  000D    18
+  189         prod. store  000E    19
+  199         store cache  000E    19
+  200         prod. store  000F    1A
+  202         store cache  000F    1A
+  203         prod. store  0010    15
+  213         store cache  0010    15
+  214         prod. store  0011    16
+  216         store cache  0011    16
+  217         prod. store  0012    17
+  227         store cache  0012    17
+  228         prod. store  0013    18
+  231         store cache  0013    18
+  232         prod. store  0014    19
+  246         store cache  0014    19
+  247         prod. store  0015    1A
+  250         store cache  0015    1A
+  251         prod. store  0016    1B
+  265         store cache  0016    1B
+  266         prod. store  0017    1C
+  269         store cache  0017    1C
+  270         prod. store  0018    1D
+  284         store cache  0018    1D
+  285         prod. store  0019    1E
+  288         store cache  0019    1E
+  289         prod. store  001A    1F
+  303         store cache  001A    1F
+  304         prod. store  001B    20
+  307         store cache  001B    20
+  308         prod. store  001C    21
+  322         store cache  001C    21
+  323         prod. store  001D    22
+  326         store cache  001D    22
+  327         prod. store  001E    23
+  341         store cache  001E    23
+  342         prod. store  001F    24
+  345         store cache  001F    24
+  346          prod. load  0000
+  360          load cache  0000
+  361          prod. load  0001
+  364          load cache  0001
+  365          prod. load  0002
+  376             consumo. valor    0B  load    0000
+  378             consumo. valor    0C  load    0001
+  379          load cache  0002
+  380          prod. load  0003
+  383          load cache  0003
+  384          prod. load  0004
+  395             consumo. valor    0D  load    0002
+  397             consumo. valor    0E  load    0003
+  398          load cache  0004
+  399          prod. load  0005
+  402          load cache  0005
+  403          prod. load  0006
+  414             consumo. valor    0F  load    0004
+  416             consumo. valor    10  load    0005
+  417          load cache  0006
+  418          prod. load  0007
+  421          load cache  0007
+  422          prod. load  0008
+  433             consumo. valor    11  load    0006
+  435             consumo. valor    12  load    0007
+  436          load cache  0008
+  437          prod. load  0009
+  440          load cache  0009
+  441          prod. load  000A
+  452             consumo. valor    13  load    0008
+  454             consumo. valor    14  load    0009
+  455          load cache  000A
+  456          prod. load  000B
+  459          load cache  000B
+  460          prod. load  000C
+  471             consumo. valor    15  load    000A
+  473             consumo. valor    16  load    000B
+  474          load cache  000C
+  475          prod. load  000D
+  478          load cache  000D
+  479          prod. load  000E
+  490             consumo. valor    17  load    000C
+  492             consumo. valor    18  load    000D
+  493          load cache  000E
+  494          prod. load  000F
+  497          load cache  000F
+  498          prod. load  0010
+  509             consumo. valor    19  load    000E
+  511             consumo. valor    1A  load    000F
+  512          load cache  0010
+  513          prod. load  0011
+  515          load cache  0011
+  516          prod. load  0012
+  523             consumo. valor    15  load    0010
+  525             consumo. valor    16  load    0011
+  526          load cache  0012
+  527          prod. load  0013
+  529          load cache  0013
+  530          prod. load  0014
+  537             consumo. valor    17  load    0012
+  539             consumo. valor    18  load    0013
+  540          load cache  0014
+  541          prod. load  0015
+  543          load cache  0015
+  544          prod. load  0016
+  551             consumo. valor    19  load    0014
+  553             consumo. valor    1A  load    0015
+  554          load cache  0016
+  555          prod. load  0017
+  557          load cache  0017
+  558          prod. load  0018
+  565             consumo. valor    1B  load    0016
+  567             consumo. valor    1C  load    0017
+  568          load cache  0018
+  569          prod. load  0019
+  571          load cache  0019
+  572          prod. load  001A
+  579             consumo. valor    1D  load    0018
+  581             consumo. valor    1E  load    0019
+  582          load cache  001A
+  583          prod. load  001B
+  585          load cache  001B
+  586          prod. load  001C
+  593             consumo. valor    1F  load    001A
+  595             consumo. valor    20  load    001B
+  596          load cache  001C
+  597          prod. load  001D
+  599          load cache  001D
+  600          prod. load  001E
+  607             consumo. valor    21  load    001C
+  609             consumo. valor    22  load    001D
+  610          load cache  001E
+  611          prod. load  001F
+  613          load cache  001F
+  614         prod. store  0010    20
+  621             consumo. valor    23  load    001E
+  623             consumo. valor    24  load    001F
+  624         store cache  0010    20
+  625         prod. store  0011    22
+  627         store cache  0011    22
+  628         prod. store  0012    24
+  630         store cache  0012    24
+  631         prod. store  0013    26
+  633         store cache  0013    26
+  634         prod. store  0014    28
+  636         store cache  0014    28
+  637         prod. store  0015    2A
+  639         store cache  0015    2A
+  640         prod. store  0016    2C
+  642         store cache  0016    2C
+  643         prod. store  0017    2E
+  645         store cache  0017    2E
+  646         prod. store  0018    30
+  648         store cache  0018    30
+  649         prod. store  0019    32
+  651         store cache  0019    32
+  652         prod. store  001A    34
+  654         store cache  001A    34
+  655         prod. store  001B    36
+  657         store cache  001B    36
+  658         prod. store  001C    38
+  660         store cache  001C    38
+  661         prod. store  001D    3A
+  663         store cache  001D    3A
+  664         prod. store  001E    3C
+  666         store cache  001E    3C
+  667         prod. store  001F    3E
+  669         store cache  001F    3E
+  670         prod. store  0000    1B
+  672         store cache  0000    1B
+  673         prod. store  0012    32
+  675         store cache  0012    32
+  676          prod. load  0015
+  678          load cache  0015
+  679          prod. load  0000
+  680             consumo. valor    2A  load    0015
+  681          load cache  0000
+  682         prod. store  001F    04
+  686             consumo. valor    1B  load    0000
+  687         store cache  001F    04
+  688     no hay peticion
+  691     no hay peticion
+  692     no hay peticion
+  693     no hay peticion
+  694     no hay peticion
+  695     no hay peticion
+  696     no hay peticion
+  697     no hay peticion
+
+ Contenido de la cache. Informacion en hexadecimal o binario
+
+Numero
+Contenedor      Estado
+       Etiqueta      Datos
+
+        0   000 011  0C1B
+        1   001 011  2632
+        2   001 011  2A28
+        3   001 011  2E2C
+        4   001 011  3230
+        5   001 011  3634
+        6   001 011  3A38
+        7   001 011  043C
+
+ Contenido de la memoria. Informacion en hexadecimal
+
+direccion   dato
+
+    0000  0C0B
+    0001  0E0D
+    0002  100F
+    0003  1211
+    0004  1413
+    0005  1615
+    0006  1817
+    0007  1A19
+    0008  2220
+    0009  1817
+    000A  1A19
+    000B  1C1B
+    000C  1E1D
+    000D  201F
+    000E  2221
+    000F  2423
+    0010  XXXX
+ . . . . . . . 
+    3FFE  XXXX
+    3FFF  FFXX
+    4000  XXXX
+ . . . . . . . 
+    7FFE  XXXX
+    7FFF  FFXX
+    8000  XXXX
