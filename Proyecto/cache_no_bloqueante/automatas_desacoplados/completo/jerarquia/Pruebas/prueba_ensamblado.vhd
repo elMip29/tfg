@@ -346,7 +346,7 @@ begin
 end process;
 
 
-consumidor: process(respuesta_valida) is
+consumidor: process is
 variable v_s_peticion: tp_peticion;
 variable v_dir: st_dir;
 variable esperado, consumo: st_palabra_dat;
@@ -355,12 +355,11 @@ variable ciclod:integer;
 file S_pro_cons: text;
 variable Lo, l : line;
 begin
-
-	if (respuesta_valida = '1') then 
-       iden := respuesta.identificador;	
-	    esperado := vector_identificadores(iden).valor_esperado;	
-		 v_dir := vector_identificadores(iden).dir;
-		 consumo := respuesta.dato_leido;
+   interface_consumidor(reloj, respuesta_valida);
+   iden := respuesta.identificador;	
+	esperado := vector_identificadores(iden).valor_esperado;	
+	v_dir := vector_identificadores(iden).dir;
+	consumo := respuesta.dato_leido;
 
 -- Actualizar fichero. Instante en el cual se consume el valor del load 
 		ciclod:= ciclo'delayed(0 fs);
@@ -395,7 +394,6 @@ begin
 				file_close(S_pro_cons);
 			end if;
 		end if;
-	end if;
 end process;
 
 

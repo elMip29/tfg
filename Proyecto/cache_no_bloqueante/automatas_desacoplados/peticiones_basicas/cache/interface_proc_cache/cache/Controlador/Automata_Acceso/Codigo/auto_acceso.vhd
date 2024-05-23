@@ -123,22 +123,10 @@ begin
 						      if (es_bdf_valido(val_BDF)) then 
 								else 
 					             if (hay_concesion_camino(conc_arb)) then 
-						              v_estado := CMPET_SEC; -- Cuando nos conceden los recursos, se va a un estado pseudoCMPET en donde se comprueba
+						              v_estado := CMPET; -- Cuando nos conceden los recursos, se va a un estado pseudoCMPET en donde se comprueba
 									 end if;                    -- si hay que expulsar el bloque
 								end if;
 						  end if; 
-						  
-				when CMPET_SEC => 
-				        if (es_expulsion_bl_modificado(expulsion_modificado) and info_bex_valida(val_BEX)) then -- Si hay que expulsar y bex lleno, se bloquea.
-						  else 
-						      if (es_expulsion_bl_modificado(expulsion_modificado)) then 
-									 if (hay_concesion_camino(conc_arb)) then 
-										  v_estado := ABDF;
-	                         end if;
-							   else
-									 v_estado := ABDF; -- De cualquier forma se ha de ir a ABDF. Al detectarse por separado los fallos secundarios. Toda peticion que 
-							   end if;               -- se encuentre en este estado es un fallo.
-						  end if;    
 					 
 				when FALLO_SEC => -- Estado que trata el fallo secundario
 				    if (es_bdf_valido(val_BDF)) then 
@@ -263,22 +251,7 @@ begin
 					          end if;                                       -- La lectura de la etiqueta es necesaria para la reconstruccion de la direccion de bloque en caso de expulsion
 							end if;
 					  end if; 
-					  interfaces_en_CURSO(v_resp);
-					  
-				when CMPET_SEC => 
-				     if (es_expulsion_bl_modificado(expulsion_modificado) and info_bex_valida(val_BEX)) then
-						   peticion_arbitraje_con_exp(v_pet_arb_bus); -- Si el BEX esta lleno, se fuerza la expulsion
-					  else 
-						   escritura_BDF(v_bdf_control, pet);
-						   if (es_expulsion_bl_modificado(expulsion_modificado)) then 
-								 peticion_arbitraje_recursos(v_pet_arb_camino);
-					 	   	 if (hay_concesion_camino(conc_arb)) then
-					 	   		  lectura_bloq_expulsado(v_s_control_acierto);
-					 	   		  invalidar_bloque(v_s_control_acierto);
-					 	   	 end if;
-							end if;
-					  end if;
-					  interfaces_en_CURSO(v_resp);		    
+					  interfaces_en_CURSO(v_resp);	    
 					 
 				when FALLO_SEC => 
 				     if (es_bdf_valido(val_BDF)) then

@@ -31,15 +31,8 @@ MuxValBex: mux_bex_val port map(contador_e => contador, bex_val_sel => bex_val, 
 -- Multiplexor que permite mantener el nivel de la senyal final -- 
 MuxFinalCont: mux_fin_cont port map(entrada_reg => bex_counter, contador_act => bex_counter_act, final => final_inter, salida => contador); 
 
--- Actualizacion del contador --
-act_contador: process(reloj) 
-  begin 
-    if (rising_edge(reloj)) then 
-	     bex_counter_act <= bex_counter + 1;
-    end if;
-end process;
-
--- Comparacion con el valor maximo --
+-- Actualizacion del contador y comparacion con el valor maximo --
+bex_counter_act <= bex_counter + 1;
 final_inter <= '1' when (MAX_COUNT_BEX = bex_counter_act) else '0';
 final <= final_inter;
 

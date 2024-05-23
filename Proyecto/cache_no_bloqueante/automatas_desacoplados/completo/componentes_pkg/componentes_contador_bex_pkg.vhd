@@ -19,8 +19,8 @@ component mux_bex_val is
 end component;
 
 component mux_fin_cont is 
-   port(entrada_reg: in tam_contador_bex;  
-	     contador_act: in tam_contador_bex;
+   port(entrada_reg: in tam_contador_bex;
+        contador_act: in tam_contador_bex;	
 		  final: in std_logic;
 		  salida: out tam_contador_bex);
 end component;

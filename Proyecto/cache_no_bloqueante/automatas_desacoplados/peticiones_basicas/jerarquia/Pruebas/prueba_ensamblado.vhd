@@ -315,12 +315,11 @@ variable ciclod:integer;
 file S_pro_cons: text;
 variable Lo, l : line;
 begin
-
-	if (respuesta_valida = '1') then 
-       iden := respuesta.identificador;	
-	    esperado := vector_identificadores(iden).valor_esperado;	
-		 v_dir := vector_identificadores(iden).dir;
-		 consumo := respuesta.dato_leido;
+   interface_consumidor(reloj, respuesta_valida);
+   iden := respuesta.identificador;	
+	esperado := vector_identificadores(iden).valor_esperado;	
+	v_dir := vector_identificadores(iden).dir;
+	consumo := respuesta.dato_leido;
 
 -- Actualizar fichero. Instante en el cual se consume el valor del load 
 		ciclod:= ciclo'delayed(0 fs);

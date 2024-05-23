@@ -5,7 +5,7 @@ use work.param_disenyo_pkg.all;
 
 package controlador_pkg is
 
-type tipoestado_acceso is (DES0, INI, ESCINI, DES, DES_ARB, CMPET, FALLO_SEC, ESP_CONT, CMPET_SEC, ABDF, LEC, ESC);
+type tipoestado_acceso is (DES0, INI, ESCINI, DES, DES_ARB, CMPET, FALLO_SEC, ESP_CONT, ABDF, LEC, ESC);
 
 type tipoestado_fallo is (PBL, ESPL, ABC, ESB, LEC_F, ESC_F);
 
