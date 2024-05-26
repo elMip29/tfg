@@ -1,0 +1,117 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+# Date created = 10:49:56  February 03, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		jerarquia_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV GX"
+set_global_assignment -name DEVICE auto
+set_global_assignment -name TOP_LEVEL_ENTITY jerarquia
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:49:56  FEBRUARY 03, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH prueba_ensamblado -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_SETUP_SCRIPT ../Pruebas/formato_ventanas.do -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME prueba_ensamblado -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id prueba_ensamblado
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME prueba_ensamblado -section_id prueba_ensamblado
+set_global_assignment -name EDA_TEST_BENCH_FILE ../../UTILIDADES_pkg/impri_CACHE_memoria_pkg/impri_memoria_pkg.vhd -section_id prueba_ensamblado
+set_global_assignment -name EDA_TEST_BENCH_FILE ../../UTILIDADES_pkg/impri_CACHE_memoria_pkg/impri_cache_pkg.vhd -section_id prueba_ensamblado
+set_global_assignment -name EDA_TEST_BENCH_FILE ../Pruebas/procedimientos_peticiones_pkg.vhd -section_id prueba_ensamblado -hdl_version VHDL_2008
+set_global_assignment -name EDA_TEST_BENCH_FILE ../Pruebas/prueba_ensamblado.vhd -section_id prueba_ensamblado -hdl_version VHDL_2008
+set_global_assignment -name VHDL_FILE ../../cache/interface_cache_bus/Codigo/interface_cache_con_bus.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/L2_con_inter_L1_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componentes_L2_con_inter_L1_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componentes_interface_proc_cache_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/ensamblado_con_interface_L1/Codigo/componentes/inter_L1_L2/registro_pet.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/ensamblado_con_interface_L1/Codigo/componentes/inter_L1_L2/mux_pet.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/ensamblado_con_interface_L1/Codigo/componentes/inter_L1_L2/interface_L1_L2.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/ensamblado_con_interface_L1/Codigo/componentes/inter_L2_L1/reg_L2_L1.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/ensamblado_con_interface_L1/Codigo/componentes/inter_L2_L1/interface_L2_L1.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/ensamblado_con_interface_L1/Codigo/componentes/inter_L2_L1/inter_L2_L1_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/ensamblado_con_interface_L1/Codigo/L2_con_interface_L1.vhd
+set_global_assignment -name VHDL_FILE ../../utilidades_pkg/impri_CACHE_memoria_pkg/impri_memoria_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../utilidades_pkg/impri_CACHE_memoria_pkg/impri_cache_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componentes_multiplexor_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componentes_memoria_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componentes_jerarquia_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componentes_camino_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componentes_cache_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componente_etiq_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componente_ensamblado_mem_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../componentes_pkg/componente_datos_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../memoria/Memoria_Principal/Codigo/Reg_ControladorMem.vhd
+set_global_assignment -name VHDL_FILE ../../memoria/Memoria_Principal/Codigo/memory.vhd
+set_global_assignment -name VHDL_FILE ../../memoria/Memoria_Principal/Codigo/ensamblado_memoria.vhd
+set_global_assignment -name VHDL_FILE ../../memoria/Memoria_Principal/Codigo/controlador_mem.vhd
+set_global_assignment -name VHDL_FILE ../../memoria/memoria_con_interface_bus/Codigo/memoria_con_interface_bus.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Interfaces/interface_mem_bus_datos.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Interfaces/interface_mem_bus_control.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Interfaces/interface_cache_bus_info.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Interfaces/interface_cache_bus_control.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Registros/RegDatos_resp.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Registros/RegDatos_pet.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Registros/RegControl_resp.vhd
+set_global_assignment -name VHDL_FILE ../../bus/Registros/RegControl_pet.vhd
+set_global_assignment -name VHDL_FILE ../../bus/componentes_interfaces_bus_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/retardos_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/procedimientos_controlador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/peticiones_cache_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/param_disenyo_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/controlador_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/campo_ET_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/campo_EST_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/campo_DAT_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/camino_dat_pkg.vhd
+set_global_assignment -name VHDL_FILE ../../tipos_constantes_pkg/acciones_pkg.vhd
+set_global_assignment -name VHDL_FILE ../Codigo/jerarquia.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Ensamblado/Codigo/ensamblado_cache.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Ensamblado/Codigo/multiplexores/muxE.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Camino_de_Datos/Componentes/multiplexores/muxB.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Camino_de_Datos/Componentes/campo_etiquetas/m_etiquetas/Codigo/memoria_ET.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Camino_de_Datos/Componentes/campo_etiquetas/ensamblado/Codigo/ensamblado_etiquetas.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Camino_de_Datos/Componentes/campo_estado/m_estado/Codigo/memoria_EST.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Camino_de_Datos/Componentes/campo_datos/m_datos/Codigo/memoria_DAT.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Camino_de_Datos/Componentes/campo_datos/ensamblado/Codigo/ensamblado_datos.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Controlador/Codigo/controlador.vhd
+set_global_assignment -name VHDL_FILE ../../cache/interface_L1_L2/cache/Camino_de_Datos/ensamblado/Codigo/camino_datos.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
