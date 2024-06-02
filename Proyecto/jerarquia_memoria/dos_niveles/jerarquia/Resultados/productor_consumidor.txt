@@ -1,0 +1,89 @@
+        prod. store xxxx yy: productor emite store; direccion: xxxx; valor: yy
+        prod. load xxxx: productor emite load; direccion: xxxx
+        store cache xxxx yy: cache inicia procesado de store; direccion: xxxx; valor: yy
+        load cache xxxx: cache inicia procesado de load; direccion: xxxx
+        consumo. valor    yy  load    xxxx: consumidor captura el valor; direccion: xxxx; valor: yy
+
+ciclo      accion
+    0     no hay peticion
+    4    final de puesta a cero
+    4  peticion de inicio  0000    03
+    5          prod. load  0000
+    7          load cache  0000
+    8         prod. store  0000    05
+    9             consumo. valor    03  load    0000
+   10         store cache  0000    05
+   11         prod. store  0010    07
+   13         store cache  0010    07
+   14          prod. load  0000
+   29          load cache  0000
+   30         prod. store  0020    04
+   38             consumo. valor    05  load    0000
+   39         store cache  0020    04
+   40          prod. load  0000
+   61          load cache  0000
+   62          prod. load  0000
+   82             consumo. valor    05  load    0000
+   83          load cache  0000
+   84         prod. store  0010    08
+   85             consumo. valor    05  load    0000
+   86         store cache  0010    08
+   87          prod. load  0010
+   96          load cache  0010
+   97         prod. store  0010    06
+   98             consumo. valor    08  load    0010
+   99         store cache  0010    06
+  100          prod. load  0000
+  102          load cache  0000
+  103     no hay peticion
+  111             consumo. valor    05  load    0000
+  113     no hay peticion
+
+ Contenido de la cache L1. Informacion en hexadecimal o binario
+
+Numero
+Contenedor      Estado
+       Etiqueta      Datos
+
+        0   000  01  0305
+        1   XXX  UU  XXXX
+        2   XXX  UU  XXXX
+        3   XXX  UU  XXXX
+        4   XXX  UU  XXXX
+        5   XXX  UU  XXXX
+        6   XXX  UU  XXXX
+        7   XXX  UU  XXXX
+
+ Contenido de la cache L2. Informacion en hexadecimal o binario
+
+Numero
+Contenedor      Estado
+       Etiqueta      Datos
+
+       0    000 101  0305
+       1    XXX UUU  XXXX
+       2    XXX UUU  XXXX
+       3    XXX UUU  XXXX
+       4    XXX UUU  XXXX
+       5    XXX UUU  XXXX
+       6    XXX UUU  XXXX
+       7    XXX UUU  XXXX
+       8    000 011  XX06
+       9    XXX UUU  XXXX
+       A    XXX UUU  XXXX
+       B    XXX UUU  XXXX
+       C    XXX UUU  XXXX
+       D    XXX UUU  XXXX
+       E    XXX UUU  XXXX
+       F    XXX UUU  XXXX
+
+ Contenido de la memoria. Informacion en hexadecimal
+
+direccion   dato
+
+    0000  0305
+    0001  XXXX
+ . . . . . . . 
+    000F  XXXX
+    0010  XX04
+    0011  XXXX
