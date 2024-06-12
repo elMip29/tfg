@@ -1,0 +1,115 @@
+        prod. store xxxx yy: productor emite store; direccion: xxxx; valor: yy
+        prod. load xxxx: productor emite load; direccion: xxxx
+        store cache xxxx yy: cache inicia procesado de store; direccion: xxxx; valor: yy
+        load cache xxxx: cache inicia procesado de load; direccion: xxxx
+        consumo. valor    yy  load    xxxx: consumidor captura el valor; direccion: xxxx; valor: yy
+
+ciclo      accion
+    0     no hay peticion
+    4    final de puesta a cero
+    4  peticion de inicio  0000    03
+    5          prod. load  0000
+    7          load cache  0000
+    8         prod. store  0000    05
+    9             consumo. valor    03  load    0000
+   10         store cache  0000    05
+   11         prod. store  0010    07
+   13         store cache  0010    07
+   14          prod. load  0000
+   16          load cache  0000
+   17         prod. store  0020    04
+   32         store cache  0020    04
+   33          prod. load  0000
+   38             consumo. valor    05  load    0000
+   46          load cache  0000
+   47          prod. load  0000
+   73          load cache  0000
+   74         prod. store  0010    08
+   95             consumo. valor    05  load    0000
+   97             consumo. valor    05  load    0000
+   98         store cache  0010    08
+   99          prod. load  0010
+  101          load cache  0010
+  102         prod. store  0010    06
+  109             consumo. valor    08  load    0010
+  110         store cache  0010    06
+  111          prod. load  0000
+  113          load cache  0000
+  114         prod. store  0000    06
+  116         store cache  0000    06
+  117          prod. load  0020
+  122             consumo. valor    05  load    0000
+  125          load cache  0020
+  126     no hay peticion
+  132     no hay peticion
+  133     no hay peticion
+  134     no hay peticion
+  135     no hay peticion
+  136     no hay peticion
+  137     no hay peticion
+  138     no hay peticion
+  139     no hay peticion
+  140     no hay peticion
+  141     no hay peticion
+  142     no hay peticion
+  143     no hay peticion
+  144     no hay peticion
+  145     no hay peticion
+  146     no hay peticion
+  147     no hay peticion
+  148     no hay peticion
+  149     no hay peticion
+  150     no hay peticion
+  151     no hay peticion
+  152     no hay peticion
+  153     no hay peticion
+  153             consumo. valor    04  load    0020
+
+ Contenido de la cache L1. Informacion en hexadecimal o binario
+
+Numero
+Contenedor      Estado
+       Etiqueta      Datos
+
+        0   002 001  XX04
+        1   XXX UUU  XXXX
+        2   XXX UUU  XXXX
+        3   XXX UUU  XXXX
+        4   XXX UUU  XXXX
+        5   XXX UUU  XXXX
+        6   XXX UUU  XXXX
+        7   XXX UUU  XXXX
+
+ Contenido de la cache L2. Informacion en hexadecimal o binario
+
+Numero
+Contenedor      Estado
+       Etiqueta      Datos
+
+       0    001 101  XX04
+       1    XXX UUU  XXXX
+       2    XXX UUU  XXXX
+       3    XXX UUU  XXXX
+       4    XXX UUU  XXXX
+       5    XXX UUU  XXXX
+       6    XXX UUU  XXXX
+       7    XXX UUU  XXXX
+       8    000 011  XX06
+       9    XXX UUU  XXXX
+       A    XXX UUU  XXXX
+       B    XXX UUU  XXXX
+       C    XXX UUU  XXXX
+       D    XXX UUU  XXXX
+       E    XXX UUU  XXXX
+       F    XXX UUU  XXXX
+
+ Contenido de la memoria. Informacion en hexadecimal
+
+direccion   dato
+
+    0000  0306
+    0001  XXXX
+ . . . . . . . 
+    000F  XXXX
+    0010  XX04
+    0011  XXXX
